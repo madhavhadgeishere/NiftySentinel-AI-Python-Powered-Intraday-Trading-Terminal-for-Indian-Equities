@@ -1,0 +1,1 @@
+# NiftySentinel-AI-Python-Powered-Intraday-Trading-Terminal-for-Indian-Equities
