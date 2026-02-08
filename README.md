@@ -1,3 +1,58 @@
-🇮🇳 NiftySentinel AI Trading TerminalA professional-grade, automated paper trading terminal built for the Indian Stock Market. It leverages Machine Learning and technical analysis to execute intraday strategies on Nifty 50 stocks.🚀 Key FeaturesMachine Learning Integration: Uses sklearn Gradient Boosting to predict the direction of the next 5-minute candle.Indian Market Native: Hardcoded NSE market hours (9:15 AM - 3:30 PM IST) and support for .NS (Yahoo Finance) symbols.Advanced Technical Engine: Utilizes pandas_ta for RSI, MACD, ADX, OBV, and Bollinger Bands.Dynamic Risk Management: Automated position sizing based on a 1.5% risk-per-trade rule and ATR-based trailing stop-losses.Live Visuals: Real-time Matplotlib dashboard with price action, technical overlays, and trade markers.State Persistence: Save and resume your trading session, capital, and trade logs using pickle-based state management.🛠️ Installation & Setup1. PrerequisitesEnsure you have Python 3.9+ installed. It is recommended to use a virtual environment.2. Install Required LibrariesRun the following command to install all necessary dependencies:Bashpip install numpy pandas yfinance pandas_ta matplotlib PyQt5 scikit-learn
-3. Run the ApplicationExecute the main script:Bashpython trading_terminal.py
-📈 How to UseSelect a Stock: Choose a pre-loaded Nifty 50 stock from the dropdown or enter a custom NSE symbol (e.g., RELIANCE.NS).Configure Strategy: Toggle the "Trailing Stop-Loss" option as per your preference.Start Trading: Click "START AUTO TRADING".Note: If the market is closed, the bot will enter "standby mode" until 9:15 AM IST.Monitor AI Score: The bot generates an AI Score. A score $\ge 3$ triggers a BUY signal, while $\le -3$ triggers a SELL/EXIT signal.Review Logs: Track every entry and exit in the real-time "Trade Log" panel on the right.Save Progress: Before closing, click "SAVE STATE" to keep your paper trading balance for your next session.⚠️ DisclaimerThis software is for educational and paper-trading purposes only. Trading in the Indian stock market involves significant risk. Never use this bot with real capital without extensive backtesting and proper legal compliance. The developers are not responsible for any financial losses.
+# 🇮🇳 NiftySentinel AI: Python-Powered Intraday Trading Terminal
+> **Automated Machine Learning & Technical Analysis Terminal for Indian Equities (NSE)**
+
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Market: NSE](https://img.shields.io/badge/Market-NSE_India-orange.svg)](https://www.nseindia.com/)
+[![GUI: PyQt5](https://img.shields.io/badge/GUI-PyQt5-green.svg)](https://www.riverbankcomputing.com/software/pyqt/)
+
+---
+
+## 📖 Overview
+**NiftySentinel AI** is a professional-grade paper trading terminal tailored for the Indian Stock Market. It leverages a **Gradient Boosting Machine Learning model** alongside a suite of technical indicators to automate decision-making for Nifty 50 stocks. 
+
+The terminal provides a real-time, high-performance GUI to monitor price action, AI confidence levels, and automated trade execution within a simulated environment.
+
+
+
+---
+
+## 🚀 Core Features
+* **AI-Powered Predictions:** Real-time directional bias forecasting using `GradientBoostingClassifier`.
+* **Comprehensive Indicators:** Auto-calculates RSI, MACD, Bollinger Bands, ADX, and OBV using `pandas_ta`.
+* **Smart Risk Management:**
+    * **1.5% Risk Rule:** Automatically calculates quantity based on stop-loss distance.
+    * **Trailing Stop-Loss:** Dynamic ATR-based exits to protect profits.
+    * **Trade Throttling:** Built-in cooldowns and daily trade limits.
+* **Indian Market Native:** Native support for IST market hours (**09:15 - 15:30**) and NSE symbols.
+* **State Persistence:** Saves your portfolio, capital, and trade history to a local `.pkl` file.
+
+---
+
+## 🛠️ Technical Stack
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Python 3.9+ |
+| **GUI Framework** | PyQt5 (Fusion Style) |
+| **Data Engine** | `yfinance` & `Pandas` |
+| **Machine Learning** | `Scikit-Learn` (Gradient Boosting) |
+| **Visualization** | `Matplotlib` (Qt5 Backend) |
+| **Indicators** | `pandas_ta` |
+
+---
+
+## 📈 Strategy & Scoring Engine
+The terminal operates on a **weighted scoring system**. A trade is only considered when multiple signals align:
+
+* **Bullish Score ($\ge +3$):** Triggered by RSI oversold, Bullish MACD cross, and ML model confirmation.
+* **Bearish Score ($\le -3$):** Triggered by overbought conditions, bearish volume flow, or ML reversal signals.
+* **Daily Trend:** Includes Fibonacci Pivot Points (R1, S1, Pivot) for intraday target setting.
+
+---
+
+## 📦 Installation & Usage
+
+### 1. Requirements
+Ensure you have Python installed. Install all dependencies via pip:
+```bash
+pip install numpy pandas yfinance pandas_ta matplotlib PyQt5 scikit-learn
